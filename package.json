@@ -1,7 +1,7 @@
 {
-  "name": "@batugkocak/restapi-express-template",
+  "name": "@batugkocak/bgc-backend",
   "version": "1.0.0",
-  "description": "A basic ExpressJS API project template with essential structure and dependencies.",
+  "description": "An app to easy-to-follow workout routines and healthy meal recommendations for all fitness levels",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

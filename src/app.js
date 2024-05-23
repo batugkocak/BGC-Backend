@@ -7,11 +7,9 @@ const config = require("./configs");
 
 const notFoundMiddleware = require("./middlewares/not-found");
 const errorHandlerMiddleware = require("./middlewares/error-handler");
-const authenticateUserMiddleware = require("./middlewares/verify-auth");
 
 // DEFINE ROUTES
 const authRoute = require("./routes/auth");
-const productRoute = require("./routes/product");
 
 // MIDDLEWARES
 app.use(express.json());
@@ -26,7 +24,6 @@ function consoleLogRequest(app) {
 consoleLogRequest(app);
 
 app.use("/api/v1/auth", authRoute);
-app.use("/api/v1/products", authenticateUserMiddleware, productRoute);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
@@ -44,8 +41,8 @@ async function initalizeServer() {
   console.info(`ℹ️ Database:`, "\x1b[33m", `            MongoDB`);
 
   console.info("\x1b[32m%s\x1b[0m", "---------------AUTHOR---------------");
-  console.info(`ℹ️ Template Author:`, "\x1b[35m", `      ${package.author}`);
-  console.info(`ℹ️ Template Version:`, "\x1b[35m", `     ${package.version}`);
+  console.info(`ℹ️ Project Author:`, "\x1b[35m", `      ${package.author}`);
+  console.info(`ℹ️ Project Version:`, "\x1b[35m", `     ${package.version}`);
 
   console.info("\x1b[32m%s\x1b[0m", "------------------------------------");
   console.log();
@@ -56,6 +53,3 @@ async function initalizeServer() {
   });
 }
 initalizeServer();
-// TODO Add RefreshToken for Authentication
-// TODO Add README.md
-// TODO Add CORS, Swagger, RateLimit, Helmet, XSS
